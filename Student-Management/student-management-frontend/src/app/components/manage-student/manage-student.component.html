@@ -1,0 +1,62 @@
+
+<div class="card-body bg-white">  
+  <table class="table table-responsive-sm table-hover table-outline mb-0">
+      <thead class="thead-primary text-white">
+      <tr>
+          <!-- <th>Id</th> -->
+          <th class="text-center"><i class="icon-people"></i></th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Email</th>
+          <th class="text-center">Phone</th>
+          <th class="text-center">DOB</th>
+          <th class="text-center">Gender</th>
+          <th class="text-center">Grade</th>
+          <th class="text-center">Address</th>
+          <th class="text-center">Status</th>
+          <th class="text-center">Deactivate</th>
+          <th class="text-center">Actions</th>
+      </tr>
+      </thead>
+      <tbody >
+      <tr *ngFor = 'let data of readData'>
+          <!-- <td>{{data.studentId}}</td> -->
+          <td class="text-center">
+              <div class="avatar">
+                  <img src="http://localhost:3000/uploaded_img/{{data.photo}}" class="img-avatar" alt="photo">
+                  <span class="avatar-status badge-success"></span>
+              </div>
+          </td>
+          <td class="text-center">
+              <a [routerLink]="['/studentDetails',data.studentId]"><div>{{data.firstName}} {{data.lastName}}</div></a>
+          </td>
+          <td class="text-center">
+              <div>{{data.email}}</div>
+          </td>
+          <td>
+              <div class="text-center">{{data.phone}}</div>
+          </td>
+          <td class="text-center">
+              <div>{{data.dob | date: 'yyyy/MM/dd'}}</div>
+          </td>
+          <td class="text-center">
+              <div>{{data.gender}}</div>
+          </td>
+          <td class="text-center">
+              <div>{{data.grade}}</div>
+          </td>
+          <td class="text-center">
+              <div>{{data.address}}</div>
+          </td>
+          <td class="text-center">
+              <span class="badge badge-success">{{data.status}}</span>
+          </td>
+          <td class="text-center">
+              <div><button (click)="patchId(data.studentId)" class="btn-danger rounded">Deactivate</button></div>
+          </td>
+          <td class="text-center">
+              <div><a [routerLink]="['/updateStudent',data.studentId]" class="btn btn-sm btn-warning rounded">Edit</a></div>
+          </td>
+      </tr>
+      </tbody>
+  </table>
+</div>

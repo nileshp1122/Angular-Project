@@ -1,0 +1,27 @@
+<div class="d-flex flex-column align-items-center bg-white">
+    <h3 class="text-center">Stuedent Details</h3>
+    <div  class="card d-flex justify-content-center cardBox" >
+        <div class="detailBox d-flex align-items-center">
+            <div class="card" style="width:34%">
+                <img class="card-img-top" src="http://localhost:3000/uploaded_img/{{readData.photo}}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title text-center">{{ readData.firstName | titlecase }} {{ readData.lastName | titlecase }}</h4>
+                </div>
+            </div>
+            <div class="detailBox1 d-flex " style="width:70%" >
+                <div class="d-flex flex-column " style="width:65%">
+                    <span>Fisrt Name : &nbsp; {{ readData.firstName | titlecase }}</span> 
+                    <span>Email : &nbsp; {{ readData.email }}</span> 
+                    <span>Date of Birth : &nbsp; {{ readData.dob | date }}</span> 
+                    <span>Address : &nbsp; {{ readData.address }}</span>
+                </div>
+                <div class="d-flex flex-column" style="width:35%">
+                    <span>Last Name : &nbsp; {{ readData.lastName | titlecase }}</span> 
+                    <span>Phone : &nbsp; {{ readData.phone }}</span> 
+                    <span>Gender : &nbsp; {{ readData.gender }}</span>
+                    <span>Grade : &nbsp; {{ readData.grade }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="card">
+    <h3 class="text-center" style="margin-top: 11px;">Update Student</h3>
+    <div class="container formBox">
+        <form #user="ngForm" (ngSubmit)="onSubmit(user)">
+            <!-- {{ user.value | json }} -->
+            <div class="form-group">
+                <label for="firstName">First Name &nbsp;: </label>
+                <input #name="ngModel" required minlength="4" type="text" name="firstName" class="form-control" ngModel autocomplete="off" >
+                <div *ngIf="name.touched && name.invalid" class="text-danger">
+                    <small *ngIf="name.errors?.required">FirstName conot be blank</small>
+                    <small *ngIf="name.errors?.minlength">FirstName conot be less than 3 char !!!</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name &nbsp;: </label>
+                <input #lastName="ngModel" required minlength="4" type="text" name="lastName" class="form-control" ngModel autocomplete="off" >
+                <div *ngIf="lastName.touched && lastName.invalid" class="text-danger">
+                    <small *ngIf="lastName.errors?.required">LaststName conot be blank</small>
+                    <small *ngIf="lastName.errors?.minlength">LaststName conot be less than 3 char !!!</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email &nbsp;: </label>
+                <input #email="ngModel" required email minlength="4" type="email" name="email" class="form-control" ngModel autocomplete="off" >
+                <div *ngIf="email.touched && email.invalid" class="text-danger">
+                    <small *ngIf="email.errors?.required">Email conot be blank</small>
+                    <small *ngIf="email.errors?.email">Incorrect email !!!</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone" class="form-label">Phone &nbsp;: </label>
+                <input #phone="ngModel" required minlength="10" maxlength="10" type="tel" name="phone" class="form-control" ngModel autocomplete="off" >
+                <div *ngIf="phone.touched && phone.invalid" class="text-danger">
+                    <small *ngIf="phone.errors?.required">Phone conot be blank</small>
+                    <small *ngIf="phone.errors?.minlength">Incorrect phone !!!</small>
+                    <small *ngIf="phone.errors?.maxlength">Incorrect phone1 !!!</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="form-label">Address &nbsp;:</label>
+                <input #address="ngModel" required minlength="10" name="address"  class="form-control" ngModel autocomplete="off" >
+                <div *ngIf="address.touched && address.invalid" class="text-danger">
+                    <small *ngIf="address.errors?.required">Address conot be blank</small>
+                    <small *ngIf="address.errors?.minlength">Address can not be less than 10 char !!!</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dob" class="form-label">Date of Birth &nbsp;: </label>
+                <input #dob="ngModel" required minlength="4" type="date" name="dob" class="form-control" ngModel autocomplete="off" >
+                <div *ngIf="dob.touched && dob.invalid" class="text-danger">
+                    <small *ngIf="dob.errors?.required">Date of birth can not be blank</small>
+                    <small *ngIf="dob.errors?.minlength">dob conot be less than 3 char !!!</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender &nbsp;: </label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input gender" type="radio" name="gender" value="Male" ngModel #gender="ngModel" >
+                    <label class="form-check-label" for="gender">male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input gender" type="radio" name="gender" value="Female" ngModel #gender="ngModel" >
+                    <label class="form-check-label" for="gender">female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="grade">Grade &nbsp;: </label>
+                <select #grade="ngModel" required name="grade" class="form-select form-control" ngModel autocomplete="off" >
+                    <input type="text" value="">
+                    <option value=""></option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+                <div *ngIf="grade.touched && grade.invalid" class="text-danger">
+                    <small *ngIf="grade.errors?.required">Grade conot be blank</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo &nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img [src]="imgPath" height="60" width="70" alt="image"></label>
+                <input #photo="ngModel" type="file" name="photo" id="photo" class="form-control" (change)="onFileSelect($event)" ngModel autocomplete="off"  >
+            </div>
+            <button [disabled]="user.invalid" *ngIf="!getparamid" class="btn bg-primary text-white fw-bold" (click)="studentAdd()"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            <button type="submit" [disabled]="user.invalid" *ngIf="getparamid" class="btn bg-primary text-white fw-bold" ><i class="fa fa-dot-circle-o"></i> Update</button>
+            <button type="reset" class="btn btn-danger"><i class="fa fa-ban"></i> Reset</button>
+        </form>
+    </div>
+</div>

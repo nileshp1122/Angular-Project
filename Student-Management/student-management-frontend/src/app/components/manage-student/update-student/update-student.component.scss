@@ -1,0 +1,31 @@
+.formBox {
+  margin-top: 5px;
+  margin-bottom: 25px;
+  padding: 15px 20px;
+  border: 1px solid #adaf95;
+  border-radius: 2px;
+  width: 90%;
+}
+.ng-valid[required],.ng-valid.required {
+  border-left: 5px solid #42a948;
+  border-right: 5px solid #42a948;
+}
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442; 
+  border-right: 5px solid #a94442;
+}
+.form-group {
+  margin-bottom: 1.2rem;
+} 
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.btn {
+  margin: 10px 0px;
+}
+small {
+  font-size: 13px;
+  color: red;
+}
+  
